@@ -8,7 +8,7 @@ export default function Rectangle(){
     const [length, setLength] = useState(0)
 
     function RectangleCall(){
-        var result = width / length
+        var result = width * length
         setArea(result)
     }
                                
@@ -16,16 +16,16 @@ export default function Rectangle(){
 
     return(
         <View style={styles.box}>
-            <Text style={styles.textTitle}>คำนวนหาค่าความดัน</Text>
+            <Text style={styles.textTitle}>คำนวนหาพื้นที่สี่เหลี่ม</Text>
             {/* <Button title="ไปหน้า 2" /> */}
 
-            <Text>แรง คือ {width} N</Text>
-            <Text>พื้นที่ คือ {length} m</Text>
-            <Text>ความดัน คือ {area} Ps</Text>
+            <Text> ความกว้าง คือ {width} ซม.</Text>
+            <Text> ความยาว คือ {length} ซม.</Text>
+            <Text> พื้นที่สี่เหลี่ม คือ {area} ตร.ซม.</Text>
 
             <TextInput 
             style={styles.textInput} 
-            placeholder="กรอกแรง" 
+            placeholder="กรอกความกว้าง" 
             placeholderTextColor="gray"
             value={width.toString()}
             onChangeText={(w) => setWidth(Number(w))} 
@@ -34,7 +34,7 @@ export default function Rectangle(){
 
             <TextInput 
             style={styles.textInput} 
-            placeholder="กรอกพื้นที่" 
+            placeholder="กรอกความยาว" 
             placeholderTextColor="gray" 
             value={length.toString()}
             onChangeText={(l) => setLength(Number(l))} 
@@ -44,8 +44,6 @@ export default function Rectangle(){
             <Button title="คำนวน" onPress={() => RectangleCall()} />
         </View>
     )
-
-    
 }
 
 const styles = StyleSheet.create({
